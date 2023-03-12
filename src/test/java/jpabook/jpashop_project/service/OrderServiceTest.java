@@ -38,7 +38,7 @@ public class OrderServiceTest {
 
         //when
         int orderCount = 2;
-        Long orderId = orderService.Order(member.getId(), book.getId(), orderCount);
+        Long orderId = orderService.order(member.getId(), book.getId(), orderCount);
 
         //then
         Order getOrder = orderRepository.findOne(orderId);
@@ -59,7 +59,7 @@ public class OrderServiceTest {
         int orderCount = 11;
 
         //when
-        orderService.Order(member.getId(), item.getId(), orderCount);
+        orderService.order(member.getId(), item.getId(), orderCount);
 
         //then
         fail("재고 수량 부족 예외가 발생해야 한다.");
@@ -72,7 +72,7 @@ public class OrderServiceTest {
         Book item = createBook("책이름", 10000, 10);
 
         int orderCount = 2;
-        Long orderId = orderService.Order(member.getId(), item.getId(), orderCount);
+        Long orderId = orderService.order(member.getId(), item.getId(), orderCount);
 
         //when
         orderService.cancelOrder(orderId);
