@@ -23,6 +23,7 @@ public class Member {
     private Address address;
 
     // mappedBy : 연관관계 매핑된 거울일 뿐..
+    //@JsonIgnore // api 호출시 하기 내용 조회 안되게 함.
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 }
